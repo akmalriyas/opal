@@ -1,5 +1,5 @@
-# 💎 OPAL Code Editor
-**Version 1.0** | *Crafted with precision by Akmal Riyas*
+# OPAL Code Editor
+**Version 1.0** | *@Akmal Riyas*
 
 ---
 
@@ -25,17 +25,6 @@ The UI focuses on high-readability typography (**Inter** & **JetBrains Mono**).
 - **Intelligent File Handling:** Supports direct file browsing and drag-and-drop uploads.
 - **Prettification Engine:** Designed to clean up messy indentation and syntax spacing.
 - **Code Structuring:** Logic to help reorganize or refactor code blocks.
-- **Custom Export:** A robust modal system to save files with specific names and extensions.
-</details>
-
-<details>
-<summary><b>📂 File Export Options</b></summary>
-
-| Feature | Description |
-| :--- | :--- |
-| **File Name** | Set a custom name for your output. |
-| **Presets** | Quick-select JS, HTML, CSS, PY, TS, JSON, or MD. |
-| **Custom Ext** | Manually define extensions (e.g., `.rb`, `.go`, `.rs`). |
 </details>
 
 <details>
@@ -56,5 +45,3 @@ The UI focuses on high-readability typography (**Inter** & **JetBrains Mono**).
 3. **Export:** Click **Save As...**, configure your filename, and download.
 
 ---
-
-> **Developer Note:** Ensure `style.css` and `script.js` are linked correctly in your root directory for full functionality.
