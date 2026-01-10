@@ -1,4 +1,4 @@
-# OPAL Code Editor
+# OPAL Code Formatter
 **Version 1.0** | *@Akmal Riyas*
 
 ---
