@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,19 @@
     <!-- Font Links/Styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- CodeMirror 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/dracula.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/htmlmixed/htmlmixed.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -24,14 +37,15 @@
                 <h1 class="brand-title">OPAL</h1>
                 <p class="brand-subtitle">Code Formater</p>
             </div>
-            
+
             <div class="tool-section">
                 <h2 class="section-title">File</h2>
-                
+
                 <!-- File Upload Area -->
                 <div class="file-upload-area" id="fileUploadArea">
                     <input type="file" id="fileInput">
                     <div class="upload-content">
+                        <!-- Upload Icon -->
                         <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                             <polyline points="7,10 12,15 17,10"></polyline>
@@ -40,17 +54,17 @@
                         <p class="upload-text">Drop files here or click to browse</p>
                     </div>
                 </div>
-                
+
                 <!-- Selected File -->
                 <div class="file-info" id="fileInfo" style="display: none;">
                     <span class="file-name"></span>
                     <button class="clear-file-btn" id="clearFileBtn">×</button>
                 </div>
             </div>
-            
+
             <div class="tool-section">
                 <h2 class="section-title">Tools</h2>
-                
+
                 <!-- Prettify -->
                 <button class="ai-button prettify-btn" id="prettifyBtn">
                     <span class="button-text">Prettify</span>
@@ -60,7 +74,7 @@
                         <div class="dot"></div>
                     </div>
                 </button>
-                
+
                 <!-- Structure -->
                 <button class="ai-button structure-btn" id="structureBtn">
                     <span class="button-text">Structure</span>
@@ -71,12 +85,13 @@
                     </div>
                 </button>
             </div>
-            
+
             <div class="tool-section">
                 <h2 class="section-title">Export</h2>
 
                 <!-- Export Button -->
                 <button class="export-button" id="exportBtn">
+                    <!-- Download Icon -->
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                         <polyline points="7,10 12,15 17,10"></polyline>
@@ -85,50 +100,35 @@
                     Save As...
                 </button>
             </div>
-            
+
             <!-- Sidebar Footer -->
             <div class="sidebar-footer">
                 <p>Created by Akmal Riyas</p>
             </div>
         </aside>
-        
+
         <!-- Main Editor Area -->
         <main class="editor-container">
             <div class="editor-wrapper" id="editorWrapper">
-                <div class="drop-overlay" id="dropOverlay" style="display: none;">
-                    <div class="drop-content">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7,10 12,15 17,10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        <p>Drop to open file</p>
-                    </div>
-                </div>
-                
+
                 <div class="editor-header">
                     <div class="editor-title">
                         <span class="title-label">Editor</span>
                         <span class="title-status" id="editorStatus">Ready</span>
                     </div>
                 </div>
-                
+
                 <div class="editor-main">
-                    <div class="line-numbers" id="lineNumbers"></div>
-                    <textarea 
-                        class="code-editor" 
-                        id="codeEditor" 
-                        placeholder="Start coding... or drop a file to begin"
-                        spellcheck="false"
-                    ></textarea>
+                    <textarea class="code-editor" id="codeEditor"
+                        placeholder="Start coding... or drop a file to begin"></textarea>
                 </div>
             </div>
         </main>
     </div>
-    
+
     <!-- Notifications -->
     <div class="toast-container" id="toastContainer"></div>
-    
+
     <!-- Progress Modal -->
     <div class="modal-overlay" id="progressModal" style="display: none;">
         <div class="modal progress-modal">
@@ -139,7 +139,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Export Modal -->
     <div class="modal-overlay" id="exportModal" style="display: none;">
         <div class="modal">
@@ -177,8 +177,9 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Connect Javascript -->
     <script src="script.js"></script>
 </body>
+
 </html>
